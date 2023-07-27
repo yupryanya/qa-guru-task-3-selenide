@@ -12,15 +12,15 @@ public class SelenideGitHubTest {
     @BeforeAll
     static void beforeAll() {
 
-        Configuration.baseUrl = "https://github.com/selenide/selenide";
+        Configuration.baseUrl = "https://github.com";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
     }
 
     @Test
-    void WikiSoftAssertionsShouldHaveJUnitTest() {
+    void wikiSoftAssertionsShouldHaveJUnitTest() {
 
-        open("");
+        open("/selenide/selenide");
 
         // Ссылка, которую мы хотим найти на странице Wiki
         String linkToFind = "SoftAssertions";
@@ -47,6 +47,7 @@ public class SelenideGitHubTest {
 
         // Проверяем, есть ли на странице текст для JUnit5
         $("#wiki-body").shouldHave(text(textToFind));
+        
 
     }
 }
