@@ -1,22 +1,11 @@
 package guru.qa;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class SelenideGitHubTest {
-
-    @BeforeAll
-    static void beforeAll() {
-
-        Configuration.baseUrl = "https://github.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-    }
+public class SelenideGitHubTest extends BaseTest {
 
     @Test
     void wikiSoftAssertionsShouldHaveJUnitTest() {
@@ -48,7 +37,7 @@ public class SelenideGitHubTest {
 
         // Проверяем, есть ли на странице текст для JUnit5
         $("#wiki-body").shouldHave(text(textToFind));
-        
+
 
     }
 }
