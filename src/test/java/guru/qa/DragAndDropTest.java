@@ -1,25 +1,18 @@
 package guru.qa;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class DragAndDropTest {
+public class DragAndDropTest extends BaseTest {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://the-internet.herokuapp.com/drag_and_drop";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-    }
+    private static String baseUrl = "https://the-internet.herokuapp.com/drag_and_drop";
 
     @Test
     void checkWithactions() {
 
-        open("");
+        open(baseUrl);
 
         SelenideElement sourceLocator = $("#column-a");
         SelenideElement destinationLocator = $("#column-b");
@@ -40,7 +33,7 @@ public class DragAndDropTest {
     @Test
     void checkWithDragAndDropMethod() {
 
-        open("");
+        open(baseUrl);
 
         SelenideElement sourceLocator = $("#column-a");
         SelenideElement destinationLocator = $("#column-b");
@@ -51,6 +44,5 @@ public class DragAndDropTest {
         //проверяем что элементы поменялись
         sourceLocator.shouldHave(text("B"));
         destinationLocator.shouldHave(text("A"));
-
     }
 }

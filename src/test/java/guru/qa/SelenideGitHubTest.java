@@ -10,11 +10,10 @@ public class SelenideGitHubTest extends BaseTest {
     @Test
     void wikiSoftAssertionsShouldHaveJUnitTest() {
 
-        open("/selenide/selenide");
+        open("https://github.com/selenide/selenide");
 
         // Ссылка, которую мы хотим найти на странице Wiki
         String linkToFind = "SoftAssertions";
-
         // Текст, который мы хотим найти на странице "SoftAssertions" в Wiki
         String textToFind = """ 
                 Using JUnit5 extend test class:
@@ -37,7 +36,5 @@ public class SelenideGitHubTest extends BaseTest {
 
         // Проверяем, есть ли на странице текст для JUnit5
         $("#wiki-body").shouldHave(text(textToFind));
-
-
     }
 }
